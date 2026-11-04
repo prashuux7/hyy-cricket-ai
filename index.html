@@ -5,219 +5,366 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HYY CRICKET AI</title>
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#080d0b;color:#f2f7f3;font-family:Arial,sans-serif}
-header{padding:22px 18px;background:#101914;border-bottom:1px solid #26392c}
-.logo{font-size:25px;font-weight:900;letter-spacing:1px}
-.logo span{color:#46e58b}
-.sub{color:#8fa497;font-size:12px;margin-top:6px}
-.container{max-width:950px;margin:auto;padding:20px}
-.hero{padding:25px 20px;background:linear-gradient(130deg,#10291b,#101914);border:1px solid #28553a;border-radius:18px;margin-bottom:20px}
-.hero h1{font-size:27px;margin-bottom:9px}
-.hero p{color:#a8b9ad;font-size:13px;line-height:1.6}
-.badge{display:inline-block;color:#4bea91;font-size:11px;font-weight:bold;margin-bottom:12px}
-.card{background:#111a14;border:1px solid #26372b;border-radius:15px;padding:19px;margin-bottom:17px}
-h2{font-size:18px;margin-bottom:16px}
-.muted{color:#9bac9f;font-size:12px;line-height:1.6}
-.match{background:#18231b;border-radius:12px;padding:16px;margin-top:12px}
-.teams{display:flex;justify-content:space-between;align-items:center;font-weight:bold;margin-bottom:13px}
-.score{font-size:23px;color:#54e995}
-.live{color:#4bea91;font-size:11px}
-button{background:#35d879;color:#06150b;border:0;border-radius:9px;padding:13px 17px;font-weight:bold;cursor:pointer;width:100%;margin-top:13px}
-input,select{background:#0a110c;color:white;border:1px solid #34483a;padding:12px;border-radius:9px;width:100%;margin:7px 0 14px}
-label{font-size:12px;color:#b5c5b9}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.result{background:#0b160e;border:1px solid #31583b;border-radius:12px;padding:17px;margin-top:15px}
-.big{font-size:30px;color:#4bea91;font-weight:bold;margin:8px 0}
-.bar{height:12px;background:#354139;border-radius:20px;overflow:hidden;display:flex;margin:13px 0}
-.bar span{background:#35d879}
-footer{text-align:center;padding:25px;color:#819387;font-size:11px}
-@media(max-width:500px){.grid{grid-template-columns:1fr}.hero h1{font-size:23px}}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #07110d;
+  color: #f4fff8;
+  min-height: 100vh;
+}
+
+header {
+  padding: 20px;
+  background: #0c1b14;
+  border-bottom: 1px solid #1d3929;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.logo {
+  font-size: 23px;
+  font-weight: 900;
+  color: #42ed91;
+}
+
+.status {
+  font-size: 11px;
+  color: #ffcf65;
+  border: 1px solid #80652c;
+  padding: 7px 10px;
+  border-radius: 20px;
+}
+
+.container {
+  max-width: 1050px;
+  margin: auto;
+  padding: 20px;
+}
+
+.hero {
+  padding: 30px 20px;
+  border-radius: 18px;
+  background: linear-gradient(135deg,#123b27,#10251a,#09140e);
+  border: 1px solid #24543a;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  color: #b4cbbd;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.tag {
+  display: inline-block;
+  background: #173d29;
+  color: #55f49c;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  margin-bottom: 14px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 16px;
+}
+
+.card {
+  background: #0d1b13;
+  border: 1px solid #203b2b;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.card h2 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #58ed98;
+}
+
+.card p {
+  color: #a8bdb0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+input, select {
+  width: 100%;
+  padding: 13px;
+  margin: 7px 0 13px;
+  background: #07120c;
+  color: white;
+  border: 1px solid #31513c;
+  border-radius: 9px;
+  outline: none;
+}
+
+label {
+  font-size: 12px;
+  color: #c4d7ca;
+}
+
+button {
+  width: 100%;
+  padding: 13px;
+  background: #36df83;
+  color: #06130b;
+  border: none;
+  border-radius: 9px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+button:hover {
+  background: #62f5a3;
+}
+
+.result {
+  margin-top: 15px;
+  padding: 15px;
+  background: #10291b;
+  border: 1px solid #28583b;
+  border-radius: 10px;
+  line-height: 1.8;
+  font-size: 14px;
+  display: none;
+}
+
+.metric {
+  background: #10271a;
+  border: 1px solid #244a32;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.metric strong {
+  display: block;
+  font-size: 22px;
+  color: #51ee98;
+  margin-top: 7px;
+}
+
+.small {
+  color: #91a99a;
+  font-size: 11px;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+footer {
+  text-align: center;
+  padding: 25px 15px;
+  color: #829889;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+@media(max-width:650px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .hero h1 {
+    font-size: 23px;
+  }
+}
 </style>
 </head>
+
 <body>
 
 <header>
-  <div class="logo">HYY <span>CRICKET AI</span></div>
-  <div class="sub">CRICKET ANALYTICS • POWERPLAY • MATCH INSIGHTS</div>
+  <div class="logo">🏏 HYY CRICKET AI</div>
+  <div class="status">● API NOT CONNECTED</div>
 </header>
 
 <div class="container">
 
-<section class="hero">
-  <div class="badge">● ANALYTICS PLATFORM</div>
-  <h1>Cricket Intelligence Hub 🏏</h1>
-  <p>Explore cricket statistics, powerplay estimates and team performance analysis in one place.</p>
-</section>
+  <section class="hero">
+    <div class="tag">CRICKET ANALYTICS PLATFORM</div>
+    <h1>Cricket Data. Smarter Analysis.</h1>
+    <p>
+      Explore cricket score analysis, powerplay estimates
+      and team comparisons in one place.
+    </p>
+  </section>
 
-<section class="card">
-  <h2>🏏 Live Matches</h2>
-  <p class="muted">Live score API is not connected yet. This is sample data, not a live match.</p>
-  <div class="match">
-    <div class="live">DEMO MATCH</div>
-    <div class="teams" style="margin-top:14px">
-      <span>IND 🇮🇳</span><span>VS</span><span>AUS 🇦🇺</span>
+  <div class="card">
+    <h2>🏏 Match Centre</h2>
+    <div class="metric">
+      <span>Sample Match</span>
+      <strong>IND vs AUS</strong>
+      <p>SAMPLE MATCH — NOT LIVE</p>
     </div>
-    <div class="muted">Example score: India 65/1 (6 Overs)</div>
+    <p class="small">
+      Live match data is not connected yet.
+      This is only a sample display.
+    </p>
   </div>
-</section>
-
-<section class="card">
-  <h2>⚡ Powerplay Analyzer</h2>
-  <p class="muted">Estimate a possible first-six-over score using a sample or manually entered score.</p>
-
-  <label>Current Score</label>
-  <input id="runs" type="number" min="0" max="300" value="0">
 
   <div class="grid">
-    <div>
-      <label>Overs completed</label>
-      <select id="overs">
-        <option value="1">1 Over</option>
-        <option value="2">2 Overs</option>
-        <option value="3">3 Overs</option>
-        <option value="4">4 Overs</option>
-        <option value="5">5 Overs</option>
-      </select>
-    </div>
-    <div>
-      <label>Wickets lost</label>
+
+    <section class="card">
+      <h2>⚡ Powerplay Analyzer</h2>
+      <p>Enter a score to calculate an illustrative powerplay estimate.</p>
+
+      <label>Current Runs</label>
+      <input type="number" id="runs" placeholder="Example: 35" min="0">
+
+      <label>Overs Completed</label>
+      <input type="number" id="overs" placeholder="Example: 4" min="0.1" max="6" step="0.1">
+
+      <label>Wickets Lost</label>
       <select id="wickets">
-        <option value="0">0</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
+        <option value="0">0 wickets</option>
+        <option value="1">1 wicket</option>
+        <option value="2">2 wickets</option>
+        <option value="3">3 wickets</option>
+        <option value="4">4 wickets</option>
+        <option value="5">5 wickets</option>
       </select>
-    </div>
+
+      <button onclick="calculatePowerplay()">Analyze Score</button>
+
+      <div class="result" id="powerResult"></div>
+    </section>
+
+    <section class="card">
+      <h2>📊 Team Comparison</h2>
+      <p>
+        Team comparison will be available after verified
+        cricket statistics are connected.
+      </p>
+
+      <div class="metric" style="margin-top:15px">
+        <span>Analysis Status</span>
+        <strong>Coming Soon</strong>
+        <p>Verified team statistics required</p>
+      </div>
+
+      <p class="small">
+        No invented team rankings or unsupported winner claims.
+      </p>
+    </section>
+
   </div>
 
-  <button onclick="powerplay()">Calculate Powerplay Estimate</button>
-  <div id="powerResult"></div>
-</section>
+  <section class="card">
+    <h2>📈 Score Comparison</h2>
+    <p>Compare two entered scores using score share. This is not a win probability.</p>
 
-<section class="card">
-  <h2>📊 Team Comparison</h2>
-  <div class="grid">
-    <div>
-      <label>Team A</label>
-      <select id="teamA">
-        <option>India</option>
-        <option>Australia</option>
-        <option>England</option>
-        <option>South Africa</option>
-        <option>New Zealand</option>
-        <option>Pakistan</option>
-      </select>
+    <label>Team A Score</label>
+    <input type="number" id="teamA" placeholder="Example: 150" min="0">
+
+    <label>Team B Score</label>
+    <input type="number" id="teamB" placeholder="Example: 140" min="0">
+
+    <button onclick="compareScores()">Compare Scores</button>
+
+    <div class="result" id="compareResult"></div>
+  </section>
+
+  <section class="card">
+    <h2>🔌 API Connection</h2>
+    <div class="metric">
+      <span>Current Status</span>
+      <strong>Not Connected</strong>
+      <p>Live cricket API integration is pending.</p>
     </div>
-    <div>
-      <label>Team B</label>
-      <select id="teamB">
-        <option>Australia</option>
-        <option>India</option>
-        <option>England</option>
-        <option>South Africa</option>
-        <option>New Zealand</option>
-        <option>Pakistan</option>
-      </select>
-    </div>
-  </div>
-  <button onclick="compare()">Compare Teams</button>
-  <div id="comparison"></div>
-</section>
-
-<section class="card">
-  <h2>🎯 Match Outcome Simulator</h2>
-  <p class="muted">Educational simulation using manually entered scores. It is not a real-world winning prediction.</p>
-
-  <label>Team A score</label>
-  <input id="scoreA" type="number" min="0" value="150">
-
-  <label>Team B score</label>
-  <input id="scoreB" type="number" min="0" value="130">
-
-  <button onclick="simulate()">Run Simulation</button>
-  <div id="simulation"></div>
-</section>
-
-<section class="card">
-  <h2>ℹ️ About HYY Cricket AI</h2>
-  <p class="muted">
-    HYY Cricket AI is an independent cricket learning and statistics project.
-    Estimates are illustrative and may not reflect actual match outcomes.
-    No betting advice or guaranteed predictions.
-  </p>
-</section>
+    <p class="small">
+      Live scores and match information will appear only
+      after a verified API connection is configured.
+    </p>
+  </section>
 
 </div>
 
-<footer>© 2026 HYY CRICKET AI • Made for Cricket Fans</footer>
+<footer>
+  <strong>HYY CRICKET AI</strong><br>
+  Cricket Analytics & Learning Platform<br><br>
+  Estimates are illustrative, not guaranteed outcomes.
+  This platform does not provide betting advice.
+</footer>
 
 <script>
-function powerplay(){
- const r=Number(document.getElementById('runs').value);
- const o=Number(document.getElementById('overs').value);
- const w=Number(document.getElementById('wickets').value);
+function calculatePowerplay() {
+  const runs = Number(document.getElementById("runs").value);
+  const overs = Number(document.getElementById("overs").value);
+  const wickets = Number(document.getElementById("wickets").value);
+  const output = document.getElementById("powerResult");
 
- if(!Number.isFinite(r)||r<0||r>300){
-  alert("Enter a valid score");return;
- }
+  if (
+    document.getElementById("runs").value === "" ||
+    document.getElementById("overs").value === "" ||
+    runs < 0 || overs <= 0 || overs > 6 ||
+    !Number.isFinite(runs) || !Number.isFinite(overs)
+  ) {
+    output.style.display = "block";
+    output.innerHTML = "Please enter valid runs and overs (maximum 6 overs).";
+    return;
+  }
 
- const rate=r/o;
- const remaining=6-o;
- const factor=Math.max(0.35,1-w*0.12);
- const estimate=Math.round(r+rate*remaining*factor);
- const low=Math.max(r,estimate-5);
- const high=estimate+5;
+  const runRate = runs / overs;
+  const remainingOvers = 6 - overs;
+  const wicketFactor = Math.max(0.65, 1 - wickets * 0.06);
+  const estimated = Math.round(
+    runs + runRate * remainingOvers * wicketFactor
+  );
 
- document.getElementById('powerResult').innerHTML=`
- <div class="result">
- <div class="muted">ILLUSTRATIVE POWERPLAY RANGE</div>
- <div class="big">${low} - ${high}</div>
- <p class="muted">Estimated six-over total based on current run rate and wickets.</p>
- </div>`;
+  output.style.display = "block";
+  output.innerHTML =
+    "<strong>Powerplay Score Estimate: " + estimated + " runs</strong><br>" +
+    "Current Run Rate: " + runRate.toFixed(2) + "<br>" +
+    "Wickets Lost: " + wickets + "<br>" +
+    "<small>This is a simple illustrative calculation, not a live prediction or guarantee.</small>";
 }
 
-function compare(){
- const a=document.getElementById('teamA').value;
- const b=document.getElementById('teamB').value;
+function compareScores() {
+  const aInput = document.getElementById("teamA").value;
+  const bInput = document.getElementById("teamB").value;
+  const a = Number(aInput);
+  const b = Number(bInput);
+  const output = document.getElementById("compareResult");
 
- if(a===b){
-  alert("Choose two different teams");return;
- }
+  if (
+    aInput === "" || bInput === "" ||
+    !Number.isFinite(a) || !Number.isFinite(b) ||
+    a < 0 || b < 0 || a + b === 0
+  ) {
+    output.style.display = "block";
+    output.innerHTML = "Please enter two valid scores. At least one score must be above zero.";
+    return;
+  }
 
- document.getElementById('comparison').innerHTML=`
- <div class="result">
- <div class="big" style="font-size:20px">${a} vs ${b}</div>
- <p class="muted">Team comparison will be available after connecting verified cricket statistics.</p>
- </div>`;
-}
+  const total = a + b;
+  const shareA = (a / total * 100).toFixed(1);
+  const shareB = (b / total * 100).toFixed(1);
 
-function simulate(){
- const a=Number(document.getElementById('scoreA').value);
- const b=Number(document.getElementById('scoreB').value);
-
- if(!Number.isFinite(a)||!Number.isFinite(b)||a<0||b<0){
-  alert("Enter valid scores");return;
- }
-
- let pa=50;
- if(a+b>0) pa=Math.round(a/(a+b)*100);
-
- document.getElementById('simulation').innerHTML=`
- <div class="result">
- <div class="muted">SCORE-BASED SIMULATION</div>
- <div class="big">${pa}% : ${100-pa}%</div>
- <div class="bar">
- <span style="width:${pa}%"></span>
- </div>
- <p class="muted">Team A: ${a} runs • Team B: ${b} runs</p>
- <p class="muted">This is only a simple score comparison, not a genuine win probability model.</p>
- </div>`;
+  output.style.display = "block";
+  output.innerHTML =
+    "Team A Score Share: <strong>" + shareA + "%</strong><br>" +
+    "Team B Score Share: <strong>" + shareB + "%</strong><br>" +
+    "<small>Score share only. This does not indicate winning chances.</small>";
 }
 </script>
 
 </body>
 </html>
-
