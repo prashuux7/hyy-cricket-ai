@@ -16,174 +16,143 @@
 
 body {
   background: #07110d;
-  color: #f4fff8;
-  min-height: 100vh;
+  color: #fff;
 }
 
 header {
   padding: 20px;
-  background: #0c1b14;
-  border-bottom: 1px solid #1d3929;
+  background: #0d1d15;
+  border-bottom: 1px solid #1d3829;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
 }
 
 .logo {
-  font-size: 23px;
-  font-weight: 900;
-  color: #42ed91;
+  color: #39e58c;
+  font-size: 22px;
+  font-weight: bold;
 }
 
 .status {
+  color: #ffca68;
   font-size: 11px;
-  color: #ffcf65;
-  border: 1px solid #80652c;
-  padding: 7px 10px;
-  border-radius: 20px;
 }
 
 .container {
-  max-width: 1050px;
+  max-width: 1000px;
   margin: auto;
   padding: 20px;
 }
 
 .hero {
-  padding: 30px 20px;
-  border-radius: 18px;
-  background: linear-gradient(135deg,#123b27,#10251a,#09140e);
+  padding: 35px 20px;
+  margin-top: 20px;
+  background: linear-gradient(135deg,#123d29,#0b1b13);
   border: 1px solid #24543a;
-  margin-bottom: 20px;
+  border-radius: 18px;
 }
 
 .hero h1 {
-  font-size: 28px;
-  margin-bottom: 10px;
+  font-size: 30px;
+  margin-bottom: 12px;
 }
 
 .hero p {
-  color: #b4cbbd;
+  color: #b7c9bd;
   line-height: 1.6;
-  font-size: 14px;
 }
 
-.tag {
-  display: inline-block;
-  background: #173d29;
-  color: #55f49c;
-  padding: 6px 10px;
-  border-radius: 20px;
-  font-size: 11px;
-  margin-bottom: 14px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2,minmax(0,1fr));
-  gap: 16px;
-}
-
-.card {
+.section {
+  margin-top: 25px;
+  padding: 22px;
   background: #0d1b13;
-  border: 1px solid #203b2b;
+  border: 1px solid #203c2b;
   border-radius: 15px;
+}
+
+.section h2 {
+  color: #42e994;
+  margin-bottom: 18px;
+  font-size: 20px;
+}
+
+.match {
+  background: #14271b;
   padding: 20px;
-  margin-bottom: 16px;
+  border-radius: 12px;
+  text-align: center;
 }
 
-.card h2 {
-  font-size: 18px;
-  margin-bottom: 15px;
-  color: #58ed98;
+.teams {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 12px;
 }
 
-.card p {
-  color: #a8bdb0;
-  font-size: 13px;
-  line-height: 1.6;
+.score {
+  font-size: 27px;
+  color: #42e994;
+  font-weight: bold;
+}
+
+.note {
+  color: #a7b8ac;
+  font-size: 12px;
+  margin-top: 12px;
 }
 
 input, select {
   width: 100%;
   padding: 13px;
-  margin: 7px 0 13px;
-  background: #07120c;
+  margin: 8px 0;
+  background: #07110d;
   color: white;
-  border: 1px solid #31513c;
-  border-radius: 9px;
+  border: 1px solid #31523c;
+  border-radius: 8px;
   outline: none;
-}
-
-label {
-  font-size: 12px;
-  color: #c4d7ca;
 }
 
 button {
   width: 100%;
   padding: 13px;
-  background: #36df83;
-  color: #06130b;
+  margin-top: 10px;
   border: none;
-  border-radius: 9px;
+  border-radius: 8px;
+  background: #35df85;
+  color: #06140c;
   font-weight: bold;
+  font-size: 15px;
   cursor: pointer;
-  margin-top: 5px;
-}
-
-button:hover {
-  background: #62f5a3;
 }
 
 .result {
   margin-top: 15px;
   padding: 15px;
-  background: #10291b;
-  border: 1px solid #28583b;
+  background: #14271b;
   border-radius: 10px;
-  line-height: 1.8;
-  font-size: 14px;
-  display: none;
+  line-height: 1.7;
 }
 
-.metric {
-  background: #10271a;
-  border: 1px solid #244a32;
-  padding: 15px;
-  border-radius: 10px;
-}
-
-.metric strong {
-  display: block;
-  font-size: 22px;
-  color: #51ee98;
-  margin-top: 7px;
-}
-
-.small {
-  color: #91a99a;
-  font-size: 11px;
-  margin-top: 10px;
-  line-height: 1.5;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 12px;
 }
 
 footer {
   text-align: center;
-  padding: 25px 15px;
-  color: #829889;
+  padding: 25px;
+  color: #8fa597;
   font-size: 12px;
-  line-height: 1.7;
 }
 
-@media(max-width:650px) {
+@media(max-width:600px) {
   .grid {
     grid-template-columns: 1fr;
   }
   .hero h1 {
-    font-size: 23px;
+    font-size: 25px;
   }
 }
 </style>
@@ -198,171 +167,157 @@ footer {
 
 <div class="container">
 
-  <section class="hero">
-    <div class="tag">CRICKET ANALYTICS PLATFORM</div>
-    <h1>Cricket Data. Smarter Analysis.</h1>
+  <div class="hero">
+    <h1>Cricket Data.<br>Smarter Analysis.</h1>
     <p>
-      Explore cricket score analysis, powerplay estimates
-      and team comparisons in one place.
+      Explore cricket statistics, compare team performances
+      and understand match data with HYY Cricket AI.
     </p>
-  </section>
+  </div>
 
-  <div class="card">
+  <div class="section">
     <h2>🏏 Match Centre</h2>
-    <div class="metric">
-      <span>Sample Match</span>
-      <strong>IND vs AUS</strong>
-      <p>SAMPLE MATCH — NOT LIVE</p>
+    <div class="match">
+      <div class="teams">IND 🇮🇳 vs AUS 🇦🇺</div>
+      <div class="score">65 / 1</div>
+      <p>6 Overs · Sample Match</p>
+      <p class="note">Illustrative sample only — not live match data.</p>
     </div>
-    <p class="small">
-      Live match data is not connected yet.
-      This is only a sample display.
-    </p>
   </div>
 
-  <div class="grid">
+  <div class="section">
+    <h2>⚡ Powerplay Analyzer</h2>
+    <label>Runs scored</label>
+    <input type="number" id="runs" placeholder="Enter runs" min="0">
 
-    <section class="card">
-      <h2>⚡ Powerplay Analyzer</h2>
-      <p>Enter a score to calculate an illustrative powerplay estimate.</p>
+    <label>Overs completed</label>
+    <input type="number" id="overs" placeholder="Enter overs" min="0.1" max="6" step="0.1">
 
-      <label>Current Runs</label>
-      <input type="number" id="runs" placeholder="Example: 35" min="0">
+    <label>Wickets lost</label>
+    <input type="number" id="wickets" placeholder="Enter wickets" min="0" max="10">
 
-      <label>Overs Completed</label>
-      <input type="number" id="overs" placeholder="Example: 4" min="0.1" max="6" step="0.1">
+    <button onclick="analyze()">Analyze Score</button>
 
-      <label>Wickets Lost</label>
-      <select id="wickets">
-        <option value="0">0 wickets</option>
-        <option value="1">1 wicket</option>
-        <option value="2">2 wickets</option>
-        <option value="3">3 wickets</option>
-        <option value="4">4 wickets</option>
-        <option value="5">5 wickets</option>
-      </select>
+    <div id="analysis" class="result" style="display:none"></div>
+  </div>
 
-      <button onclick="calculatePowerplay()">Analyze Score</button>
-
-      <div class="result" id="powerResult"></div>
-    </section>
-
-    <section class="card">
-      <h2>📊 Team Comparison</h2>
-      <p>
-        Team comparison will be available after verified
-        cricket statistics are connected.
-      </p>
-
-      <div class="metric" style="margin-top:15px">
-        <span>Analysis Status</span>
-        <strong>Coming Soon</strong>
-        <p>Verified team statistics required</p>
+  <div class="section">
+    <h2>📊 Team Comparison</h2>
+    <div class="grid">
+      <div>
+        <label>Team 1</label>
+        <select id="team1">
+          <option>India</option>
+          <option>Australia</option>
+          <option>England</option>
+          <option>South Africa</option>
+        </select>
       </div>
-
-      <p class="small">
-        No invented team rankings or unsupported winner claims.
-      </p>
-    </section>
-
+      <div>
+        <label>Team 2</label>
+        <select id="team2">
+          <option>Australia</option>
+          <option>India</option>
+          <option>England</option>
+          <option>South Africa</option>
+        </select>
+      </div>
+    </div>
+    <button onclick="compareTeams()">Compare Teams</button>
+    <div id="comparison" class="result" style="display:none"></div>
+    <p class="note">Team statistics API is not connected yet.</p>
   </div>
 
-  <section class="card">
+  <div class="section">
     <h2>📈 Score Comparison</h2>
-    <p>Compare two entered scores using score share. This is not a win probability.</p>
-
-    <label>Team A Score</label>
-    <input type="number" id="teamA" placeholder="Example: 150" min="0">
-
-    <label>Team B Score</label>
-    <input type="number" id="teamB" placeholder="Example: 140" min="0">
-
+    <p>Compare two entered scores using their share of the combined total.</p>
+    <input type="number" id="score1" placeholder="Team 1 score" min="0">
+    <input type="number" id="score2" placeholder="Team 2 score" min="0">
     <button onclick="compareScores()">Compare Scores</button>
+    <div id="scoreResult" class="result" style="display:none"></div>
+  </div>
 
-    <div class="result" id="compareResult"></div>
-  </section>
-
-  <section class="card">
+  <div class="section">
     <h2>🔌 API Connection</h2>
-    <div class="metric">
-      <span>Current Status</span>
-      <strong>Not Connected</strong>
-      <p>Live cricket API integration is pending.</p>
-    </div>
-    <p class="small">
-      Live scores and match information will appear only
-      after a verified API connection is configured.
-    </p>
-  </section>
+    <p>Live match data: <span style="color:#ffca68">Not Connected</span></p>
+    <p class="note">Connect a verified cricket data API to display live scores and statistics.</p>
+  </div>
 
 </div>
 
 <footer>
-  <strong>HYY CRICKET AI</strong><br>
-  Cricket Analytics & Learning Platform<br><br>
-  Estimates are illustrative, not guaranteed outcomes.
-  This platform does not provide betting advice.
+  HYY CRICKET AI © 2026<br>
+  Educational cricket statistics and analysis.
+  Sample figures are illustrative, not predictions.
 </footer>
 
 <script>
-function calculatePowerplay() {
+function analyze() {
   const runs = Number(document.getElementById("runs").value);
   const overs = Number(document.getElementById("overs").value);
   const wickets = Number(document.getElementById("wickets").value);
-  const output = document.getElementById("powerResult");
+  const output = document.getElementById("analysis");
 
   if (
     document.getElementById("runs").value === "" ||
     document.getElementById("overs").value === "" ||
+    document.getElementById("wickets").value === "" ||
     runs < 0 || overs <= 0 || overs > 6 ||
-    !Number.isFinite(runs) || !Number.isFinite(overs)
+    wickets < 0 || wickets > 10
   ) {
-    output.style.display = "block";
-    output.innerHTML = "Please enter valid runs and overs (maximum 6 overs).";
+    alert("Please enter valid match details.");
     return;
   }
 
   const runRate = runs / overs;
-  const remainingOvers = 6 - overs;
-  const wicketFactor = Math.max(0.65, 1 - wickets * 0.06);
-  const estimated = Math.round(
-    runs + runRate * remainingOvers * wicketFactor
-  );
 
   output.style.display = "block";
   output.innerHTML =
-    "<strong>Powerplay Score Estimate: " + estimated + " runs</strong><br>" +
-    "Current Run Rate: " + runRate.toFixed(2) + "<br>" +
-    "Wickets Lost: " + wickets + "<br>" +
-    "<small>This is a simple illustrative calculation, not a live prediction or guarantee.</small>";
+    "<b>Analysis Result</b><br>" +
+    "Current Score: " + runs + "<br>" +
+    "Overs: " + overs + "<br>" +
+    "Wickets: " + wickets + "<br>" +
+    "Run Rate: " + runRate.toFixed(2) +
+    "<p class='note'>This is a descriptive calculation, not a future-score prediction.</p>";
+}
+
+function compareTeams() {
+  const a = document.getElementById("team1").value;
+  const b = document.getElementById("team2").value;
+  const output = document.getElementById("comparison");
+
+  output.style.display = "block";
+
+  if (a === b) {
+    output.innerHTML = "Please select two different teams.";
+    return;
+  }
+
+  output.innerHTML =
+    "<b>Selected Teams</b><br>" +
+    a + " vs " + b +
+    "<p class='note'>Verified team statistics will appear after API integration.</p>";
 }
 
 function compareScores() {
-  const aInput = document.getElementById("teamA").value;
-  const bInput = document.getElementById("teamB").value;
+  const aInput = document.getElementById("score1").value;
+  const bInput = document.getElementById("score2").value;
   const a = Number(aInput);
   const b = Number(bInput);
-  const output = document.getElementById("compareResult");
+  const output = document.getElementById("scoreResult");
 
-  if (
-    aInput === "" || bInput === "" ||
-    !Number.isFinite(a) || !Number.isFinite(b) ||
-    a < 0 || b < 0 || a + b === 0
-  ) {
-    output.style.display = "block";
-    output.innerHTML = "Please enter two valid scores. At least one score must be above zero.";
+  if (aInput === "" || bInput === "" || a < 0 || b < 0 || a + b === 0) {
+    alert("Enter two valid scores. At least one must be above zero.");
     return;
   }
 
   const total = a + b;
-  const shareA = (a / total * 100).toFixed(1);
-  const shareB = (b / total * 100).toFixed(1);
 
   output.style.display = "block";
   output.innerHTML =
-    "Team A Score Share: <strong>" + shareA + "%</strong><br>" +
-    "Team B Score Share: <strong>" + shareB + "%</strong><br>" +
-    "<small>Score share only. This does not indicate winning chances.</small>";
+    "<b>Score Share</b><br>" +
+    "Team 1: " + (a / total * 100).toFixed(1) + "%<br>" +
+    "Team 2: " + (b / total * 100).toFixed(1) + "%";
 }
 </script>
 
